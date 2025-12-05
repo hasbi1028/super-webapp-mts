@@ -1,0 +1,9 @@
+export * from './users';
+export * from './roles';
+export * from './user_roles';
+export * from './students';
+export * from './classes';
+export * from './student_claseses';
+// export * from "./teachers";
+export * from './permissions';
+export * from './role_permissions';
