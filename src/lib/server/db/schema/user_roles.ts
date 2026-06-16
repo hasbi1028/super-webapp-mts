@@ -1,9 +1,9 @@
-import { pgTable, serial, integer } from 'drizzle-orm/pg-core';
+import { sqliteTable, integer } from 'drizzle-orm/sqlite-core';
 import { users } from './index';
 import { roles } from './index';
 
-export const userRoles = pgTable('user_roles', {
-	id: serial('id').primaryKey(),
+export const userRoles = sqliteTable('user_roles', {
+	id: integer('id').primaryKey({ autoIncrement: true }),
 	userId: integer('user_id')
 		.references(() => users.id)
 		.notNull(),

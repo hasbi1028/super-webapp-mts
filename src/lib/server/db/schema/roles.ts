@@ -1,7 +1,7 @@
-import { pgTable, serial, text } from 'drizzle-orm/pg-core';
+import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
 
-export const roles = pgTable('roles', {
-	id: serial('id').primaryKey(),
+export const roles = sqliteTable('roles', {
+	id: integer('id').primaryKey({ autoIncrement: true }),
 	name: text('name').notNull().unique(), // admin, guru, siswa, tu, wali_kelas
 	description: text('description')
 });

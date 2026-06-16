@@ -1,9 +1,9 @@
-import { pgTable, serial, integer } from 'drizzle-orm/pg-core';
+import { sqliteTable, integer } from 'drizzle-orm/sqlite-core';
 import { roles } from './index';
 import { permissions } from './index';
 
-export const rolePermissions = pgTable('role_permissions', {
-	id: serial('id').primaryKey(),
+export const rolePermissions = sqliteTable('role_permissions', {
+	id: integer('id').primaryKey({ autoIncrement: true }),
 	roleId: integer('role_id')
 		.references(() => roles.id)
 		.notNull(),
