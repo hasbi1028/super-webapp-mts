@@ -1,7 +1,7 @@
-import { pgTable, serial, text, integer, date, boolean, timestamp } from 'drizzle-orm/pg-core';
+import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
 
-export const students = pgTable('students', {
-	id: serial('id').primaryKey(),
+export const students = sqliteTable('students', {
+	id: integer('id').primaryKey({ autoIncrement: true }),
 
 	nis: text('nis').notNull().unique(),
 	nisn: text('nisn').unique(),
@@ -9,7 +9,7 @@ export const students = pgTable('students', {
 
 	jenisKelamin: text('jenis_kelamin'), // L/P
 	tempatLahir: text('tempat_lahir'),
-	tanggalLahir: date('tanggal_lahir'),
+	tanggalLahir: text('tanggal_lahir'),
 
 	alamat: text('alamat'),
 	noHp: text('no_hp'),
@@ -20,5 +20,5 @@ export const students = pgTable('students', {
 	tahunMasuk: integer('tahun_masuk'),
 	status: text('status').default('aktif'), // aktif, lulus, pindah, keluar
 
-	createdAt: timestamp('created_at').defaultNow()
+	createdAt: text('created_at')
 });

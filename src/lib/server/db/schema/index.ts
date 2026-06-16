@@ -7,3 +7,4 @@ export * from './student_claseses';
 // export * from "./teachers";
 export * from './permissions';
 export * from './role_permissions';
+export * from './e-rapor';
